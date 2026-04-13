@@ -1,27 +1,21 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "{airline}-{###}",
  "creation": "2026-04-10 16:22:07.686846",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "naming_series",
   "model",
   "airline",
   "capacity"
  ],
  "fields": [
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "naming_series",
-   "options": "IndiGo-.###\nAirAsia-.###"
-  },
-  {
    "fieldname": "model",
    "fieldtype": "Data",
-   "label": "Model"
+   "label": "Model",
+   "reqd": 1
   },
   {
    "fieldname": "airline",
@@ -43,11 +37,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-10 16:31:54.450002",
+ "modified": "2026-04-13 11:24:18.148377",
  "modified_by": "Administrator",
  "module": "airplane_mode",
- "name": "Air_plane",
- "naming_rule": "By \"Naming Series\" field",
+ "name": "Airplane",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
