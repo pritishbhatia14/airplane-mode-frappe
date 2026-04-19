@@ -1,27 +1,33 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{flight}-{source_airport_code}-to-{destination_airport_code}-{###}",
+ "autoname": "format:{flight}-{source_airport_code}-to-{destination_airport_code}-{####}",
  "creation": "2026-04-10 23:46:07.094324",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "airplane_ticket_section",
   "passenger",
-  "source_airport",
-  "source_airport_code",
+  "status",
   "column_break_ypkc",
   "flight",
-  "destination_airport",
+  "seat",
+  "section_break_twhg",
+  "source_airport_code",
+  "column_break_fufd",
   "destination_airport_code",
+  "add_ons_section",
+  "add_ons",
+  "flight_price_section",
+  "flight_price",
+  "column_break_eoft",
+  "total_amount",
   "departure_details_section",
   "departure_date",
   "departure_time",
   "column_break_oyvj",
   "duration_of_flight",
-  "amended_from",
-  "ticket_status_section",
-  "status"
+  "amended_from"
  ],
  "fields": [
   {
@@ -38,23 +44,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "source_airport",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Source Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fieldname": "destination_airport",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Destination Airport",
-   "options": "Airport",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "source_airport.code",
+   "fetch_from": "flight.source_airport_code",
    "fieldname": "source_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -63,7 +53,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "destination_airport.code",
+   "fetch_from": "flight.destination_airport_code",
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -75,23 +65,28 @@
    "fieldname": "flight",
    "fieldtype": "Link",
    "label": "Flight",
-   "options": "Airplane",
-   "reqd": 1
+   "options": "Airplane Flight",
+   "reqd": 1,
+   "search_index": 1
   },
   {
+   "fetch_from": "flight.date_of_departure",
    "fieldname": "departure_date",
    "fieldtype": "Date",
    "in_filter": 1,
    "label": "Departure Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
+   "fetch_from": "flight.time_of_departure",
    "fieldname": "departure_time",
    "fieldtype": "Time",
    "label": "Departure Time",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.duration",
    "fieldname": "duration_of_flight",
    "fieldtype": "Duration",
    "label": "Duration of Flight"
@@ -110,6 +105,60 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Booked",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Booked\nChecked-In\nBoarded",
+   "reqd": 1
+  },
+  {
+   "fieldname": "add_ons_section",
+   "fieldtype": "Section Break",
+   "label": "Add Ons"
+  },
+  {
+   "fieldname": "add_ons",
+   "fieldtype": "Table",
+   "label": "Add Ons",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_twhg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_fufd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "flight_price_section",
+   "fieldtype": "Section Break",
+   "label": "Flight Price"
+  },
+  {
+   "fieldname": "column_break_eoft",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -118,26 +167,13 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
-  },
-  {
-   "fieldname": "ticket_status_section",
-   "fieldtype": "Section Break",
-   "label": "Ticket Status"
-  },
-  {
-   "default": "Booked",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Booked\nChecked-In\nBoarded",
-   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-13 11:38:45.985571",
+ "modified": "2026-04-19 11:27:08.205171",
  "modified_by": "Administrator",
  "module": "airplane_mode",
  "name": "Airplane Ticket",
