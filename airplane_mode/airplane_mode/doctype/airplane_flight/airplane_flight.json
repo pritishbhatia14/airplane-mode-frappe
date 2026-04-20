@@ -20,8 +20,7 @@
   "source_airport_code",
   "column_break_etnk",
   "destination_airport",
-  "destination_airport_code",
-  "amended_from"
+  "destination_airport_code"
  ],
  "fields": [
   {
@@ -117,16 +116,6 @@
   {
    "fieldname": "column_break_kceb",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Airplane Flight",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   }
  ],
  "grid_page_length": 50,
@@ -138,7 +127,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2026-04-19 11:19:52.758855",
+ "modified": "2026-04-20 14:36:57.691408",
  "modified_by": "Administrator",
  "module": "airplane_mode",
  "name": "Airplane Flight",

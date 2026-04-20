@@ -1,19 +1,24 @@
-# Copyright (c) 2026, pritish and contributors
-# For license information, please see license.txt
-
 import frappe
 from frappe.model.document import Document
 import random
 
+
 class AirplaneTicket(Document):
 
+    def before_insert(self):
+        self.assign_random_seat()
+
     def validate(self):
-        self.calculate_total()
         self.remove_duplicate_addons()
+        self.calculate_total()
 
     def before_submit(self):
-        if self.status != "Boarded":
-            frappe.throw("Ticket can only be submitted when status is Boarded")
+        self.validate_boarding_status()
+
+    def assign_random_seat(self):
+        number = random.randint(1, 99)
+        letter = random.choice(["A", "B", "C", "D", "E"])
+        self.seat = f"{number}{letter}"
 
     def calculate_total(self):
         total = self.flight_price or 0
@@ -34,8 +39,6 @@ class AirplaneTicket(Document):
 
         self.set("add_ons", unique_rows)
 
-    def before_insert(self):
-        number = random.randint(1, 99)
-        letter = random.choice(["A", "B", "C", "D", "E"])
-        self.seat = f"{number}{letter}"
-
+    def validate_boarding_status(self):
+        if self.status != "Boarded":
+            frappe.throw("Ticket can only be submitted when status is Boarded")
