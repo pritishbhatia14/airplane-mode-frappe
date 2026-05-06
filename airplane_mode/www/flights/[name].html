@@ -1,0 +1,9 @@
+<h2>Flight Detail</h2>
+
+<p><b>From:</b> {{ doc.source_airport_code }}</p>
+<p><b>To:</b> {{ doc.destination_airport_code }}</p>
+
+<p><b>Date:</b> {{ frappe.utils.format_date(doc.date_of_departure) }}</p>
+<p><b>Time:</b> {{ doc.time_of_departure }}</p>
+
+<p><b>Duration:</b> {{ frappe.utils.format_duration(doc.duration) }}</p>

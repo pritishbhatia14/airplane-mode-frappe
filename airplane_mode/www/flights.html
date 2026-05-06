@@ -1,0 +1,58 @@
+<h1>Flights</h1>
+
+{% for doc in docs %}
+  <div>
+    <p>{{ doc.source_airport_code }} → {{ doc.destination_airport_code }}</p>
+    <p>{{ frappe.utils.format_date(doc.date_of_departure) }}</p>
+    <p>{{ doc.time_of_departure }}</p>
+    <p>{{ frappe.utils.format_duration(doc.duration) }}</p>
+
+    <a href="{{ doc.route }}">View Flight</a>
+  </div>
+{% endfor %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flights</title>
+
+    <style>
+        .flight {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Flights</h1>
+
+<div class="flight">
+    <p><b>BLR → IND</b></p>
+    <p>Date: 06-05-2026</p>
+    <p>Time: 12:10:30</p>
+    <p>Duration: 1h</p>
+    <a href="#">View Flight</a>
+</div>
+
+<div class="flight">
+    <p><b>DEL → BLR</b></p>
+    <p>Date: 04-05-2026</p>
+    <p>Time: 22:27:02</p>
+    <p>Duration: 1h</p>
+    <a href="#">View Flight</a>
+</div>
+
+<div class="flight">
+    <p><b>DEL → JBP</b></p>
+    <p>Date: 04-05-2026</p>
+    <p>Time: 22:13:02</p>
+    <p>Duration: 1h</p>
+    <a href="#">View Flight</a>
+</div>
+
+</body>
+</html>

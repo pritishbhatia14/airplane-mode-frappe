@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "format:{airplane}-{MM}-{YYYY}-{#####}",
  "creation": "2026-04-18 21:19:49.554863",
@@ -10,6 +11,13 @@
   "airplane",
   "column_break_else",
   "status",
+  "flight_price",
+  "section_break_sfmu",
+  "table_zjeh",
+  "section_break_xhhm",
+  "is_published",
+  "route",
+  "gate_number",
   "departure_details_section",
   "date_of_departure",
   "duration",
@@ -38,7 +46,7 @@
   },
   {
    "fieldname": "date_of_departure",
-   "fieldtype": "Date",
+   "fieldtype": "Datetime",
    "in_list_view": 1,
    "label": "Date of Departure",
    "reqd": 1
@@ -127,10 +135,47 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "section_break_xhhm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is Published?"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price"
+  },
+  {
+   "fieldname": "section_break_sfmu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_zjeh",
+   "fieldtype": "Table",
+   "label": "Crew Members",
+   "options": "Flight Crew Member"
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number"
   }
  ],
  "grid_page_length": 50,
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
  "is_submittable": 1,
  "links": [
   {
@@ -138,7 +183,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2026-04-26 15:19:59.840767",
+ "modified": "2026-05-06 10:27:06.046092",
  "modified_by": "Administrator",
  "module": "airplane_mode",
  "name": "Airplane Flight",

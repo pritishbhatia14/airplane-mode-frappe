@@ -12,6 +12,7 @@
   "column_break_ypkc",
   "flight",
   "seat",
+  "gate_number",
   "section_break_twhg",
   "source_airport_code",
   "column_break_fufd",
@@ -124,6 +125,7 @@
    "options": "Airplane Ticket Add-on Item"
   },
   {
+   "fetch_from": "flight.flight_price",
    "fieldname": "flight_price",
    "fieldtype": "Currency",
    "label": "Flight Price",
@@ -167,13 +169,20 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "flight.gate_number",
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-26 15:23:48.309978",
+ "modified": "2026-05-06 10:28:26.396391",
  "modified_by": "Administrator",
  "module": "airplane_mode",
  "name": "Airplane Ticket",

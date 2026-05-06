@@ -1,9 +1,5 @@
-# Copyright (c) 2026, pritish and contributors
-# For license information, please see license.txt
-
-# import frappe
+import frappe
 from frappe.model.document import Document
 
-
 class Airport(Document):
-	pass
+    pass
