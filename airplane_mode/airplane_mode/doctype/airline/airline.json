@@ -9,7 +9,9 @@
   "airline_section",
   "founding_year",
   "customer_care_number",
-  "headquarters"
+  "headquarters",
+  "website",
+  "logo"
  ],
  "fields": [
   {
@@ -36,9 +38,22 @@
    "fieldname": "airline_section",
    "fieldtype": "Section Break",
    "label": "Airline"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Logo"
   }
  ],
  "grid_page_length": 50,
+ "image_field": "logo",
  "index_web_pages_for_search": 1,
  "links": [
   {
@@ -46,7 +61,7 @@
    "link_fieldname": "airline"
   }
  ],
- "modified": "2026-04-13 13:03:56.191108",
+ "modified": "2026-04-28 10:24:31.191204",
  "modified_by": "Administrator",
  "module": "airplane_mode",
  "name": "Airline",
@@ -62,6 +77,45 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
    "share": 1,
    "write": 1
   }

@@ -1,0 +1,15 @@
+<h1>{{ doc.name }}</h1>
+
+<p><b>Shop Number:</b> {{ doc.shop_number }}</p>
+
+<p><b>Airport:</b> {{ doc.airport }}</p>
+
+<p><b>Shop Type:</b> {{ doc.shop_type }}</p>
+
+<p><b>Status:</b> {{ doc.status }}</p>
+
+{% if doc.status == "Available" %}
+    <a href="/shop-lead-form?shop={{ doc.name }}">Book</a>
+{% else %}
+    <p>This shop is already occupied.</p>
+{% endif %}

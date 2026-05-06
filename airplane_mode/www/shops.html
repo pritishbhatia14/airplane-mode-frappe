@@ -1,0 +1,6 @@
+<h1>Shops</h1>
+
+{% for doc in shops %}
+  <h3>{{doc.shop_name}}</h2><br>
+  <a href="{{ doc.route }}">view details</a><br>
+{% endfor %}
